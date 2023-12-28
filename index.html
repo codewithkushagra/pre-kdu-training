@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calculator</h1>
+
+  <label for="num1">Number 1:</label>
+  <input type="text" id="num1">
+
+  <label for="num2">Number 2:</label>
+  <input type="text" id="num2">
+
+  <br>
+
+  <button onclick="add()">Add</button>
+  <button onclick="subtract()">Subtract</button>
+  <button onclick="multiply()">Multiply</button>
+  <button onclick="divide()">Divide</button>
+
+  <script>
+    function getNumber(id) {
+      return parseFloat(document.getElementById(id).value) || 0;
+    }
+
+    function add() {
+      const result = getNumber('num1') + getNumber('num2');
+      alert('Result: ' + result);
+    }
+
+    function subtract() {
+      const result = getNumber('num1') - getNumber('num2');
+      alert('Result: ' + result);
+    }
+
+    function multiply() {
+      const result = getNumber('num1') * getNumber('num2');
+      alert('Result: ' + result);
+    }
+
+    function divide() {
+      const num2 = getNumber('num2');
+      if (num2 !== 0) {
+        const result = getNumber('num1') / num2;
+        alert('Result: ' + result);
+      } else {
+        alert('Cannot divide by zero!');
+      }
+    }
+  </script>
+
+</body>
+</html>
